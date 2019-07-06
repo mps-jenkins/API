@@ -1,0 +1,14 @@
+import os
+
+def process(dirname):
+    dirpath = os.path.abspath(dirname)
+    for file in os.listdir(dirname):
+        filefullpath = os.path.join(dirpath,file)
+        if os.path.isfile(filefullpath):
+            print(filefullpath)
+        elif os.path.isdir(filefullpath):
+            process(filefullpath)
+
+
+
+process('/home/s.verma1/Documents')

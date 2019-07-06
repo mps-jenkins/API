@@ -1,0 +1,13 @@
+import json
+
+dict1 = {}
+with open("/home/s.verma1/Pythonwork/test.json",'r') as input:
+    jsondata = json.load(input)
+    for data in jsondata:
+        print(data)
+        dict1.setdefault(data["id"],[]).append(data["clone_url"])
+        dict1[data["id"]].append(data["ssh_url"])
+        dict1[data["id"]].append(data["full_name"])
+        print(dict1[data["id"]])
+        with open("sample.json", "w") as data:
+            json.dump(dict1, data, indent = 2)
